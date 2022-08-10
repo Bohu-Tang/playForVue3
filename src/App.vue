@@ -1,13 +1,18 @@
 <script setup lang="ts">
-import ElMain from "./components/container/Main.vue";
+import ElMain from "./components/container/Main.vue"
+import ElButton from './components/button/Button.vue'
 </script>
 
 <template>
   <el-container>
-    <el-aside>aside</el-aside>
+    <el-aside width="200px">aside</el-aside>
     <el-container>
       <el-header>header</el-header>
-      <el-main>main</el-main>
+      <el-main>
+        <el-button size="large" type="success">按钮</el-button>
+        <el-button size="medium" type="primary">按钮</el-button>
+        <el-button size="small" type="danger">按钮</el-button>
+      </el-main>
       <el-footer>footer</el-footer>
     </el-container>
   </el-container>
@@ -18,19 +23,18 @@ import ElMain from "./components/container/Main.vue";
   width: 100%;
   height: 100%;
   .el-aside{
-    width: 300px;
-    background-color: palegoldenrod;
+    background-color: #d5dce5;
   }
   .el-container{
     .el-header{
-      background-color: pink;
+      background-color: #b5c0cf;
     }
     .el-main{
-      background-color: blueviolet;
+      background-color: #eaeef2;
 
     }
     .el-footer{
-      background-color: aquamarine;
+      background-color: #b5c0cf;
     }
   }
 }

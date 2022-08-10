@@ -13,14 +13,14 @@ export default {
 }
 </script>
 <script setup lang="ts">
-import {useSlots, computed, VNode, Component} from "vue";
+import {useSlots, computed, VNode, Component} from "vue"
 
 interface Props {
   direction?: string
 }
 
-const props = defineProps<Props>();
-const slots = useSlots();
+const props = defineProps<Props>()
+const slots = useSlots()
 const isVertical = computed(() => {
   if (slots && slots.default) {
     return slots.default().some((vn: VNode) => {

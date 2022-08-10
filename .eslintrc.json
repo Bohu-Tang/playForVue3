@@ -13,6 +13,7 @@
     "parser": "@typescript-eslint/parser",
     "sourceType": "module"
   },
+  "parser": "vue-eslint-parser",
   "plugins": [
     "vue",
     "@typescript-eslint"

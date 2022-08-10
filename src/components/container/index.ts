@@ -1,9 +1,9 @@
-import {App} from "vue";
-import ElContainer from './Container.vue';
-import ElHeader from './Header.vue';
-import ElFooter from './Footer.vue';
-import ElMain from './Main.vue';
-import ElAside from './Aside.vue';
+import {App} from "vue"
+import ElContainer from './Container.vue'
+import ElHeader from './Header.vue'
+import ElFooter from './Footer.vue'
+import ElMain from './Main.vue'
+import ElAside from './Aside.vue'
 
 
 export default {
