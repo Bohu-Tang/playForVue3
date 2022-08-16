@@ -1,5 +1,5 @@
 <template>
-  <router-view />
+  <div class="home">这里是首页</div>
 </template>
 <script setup lang="ts">
 
@@ -7,4 +7,3 @@
 <style lang="scss">
 
 </style>
-

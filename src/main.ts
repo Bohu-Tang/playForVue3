@@ -1,10 +1,16 @@
 import {createApp} from 'vue'
 import App from './App.vue'
-import ElContainer from './components/container'
-import './styles/index.scss'
+import ElementPlus from 'element-plus'
+import 'element-plus/dist/index.css'
+import router from "@/routes"
+
+import '@/styles/index.scss'
+import pinia from "@/store"
 
 const app = createApp(App)
-app.config.globalProperties.$AILEMENT = { size:'small'}
 
-app.use(ElContainer)
+
+app.use(ElementPlus)
+    .use(router)
+    .use(pinia)
     .mount('#app')
