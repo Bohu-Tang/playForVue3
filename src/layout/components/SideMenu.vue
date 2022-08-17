@@ -1,6 +1,6 @@
 <template>
   <el-menu
-      default-active="/"
+      :default-active="activeRoute"
       class="el-menu-vertical"
       :collapse="collapseStore.isCollapsed"
       :collapse-transition="true"
@@ -36,7 +36,8 @@
 
 <script lang="ts" setup>
 import useCollapse from "@/store/collapse"
-import {useRouter} from "vue-router"
+import {useRouter, useRoute} from "vue-router"
+import {ref} from 'vue'
 
 /**
  * 菜单展开/收起
@@ -52,6 +53,11 @@ const router = useRouter()
 const allRoutes = router.getRoutes().filter(item => {
   return !item.meta.parentRoute && !item.meta.hidden
 })
+// 获取当前路由，设置活动的路由
+const route = useRoute()
+const activeRoute = ref<string>('/')
+activeRoute.value = route.fullPath
+
 
 </script>
 
