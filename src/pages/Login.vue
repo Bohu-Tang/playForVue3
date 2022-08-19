@@ -17,6 +17,7 @@
 <script setup lang="ts">
 import {ElMessage} from "element-plus"
 import {ref, computed} from "vue"
+import {useRouter} from "vue-router"
 import md5 from "md5"
 import apiService from "@/apiService"
 
@@ -27,6 +28,8 @@ const canLogin = computed(() => {
   return username.value && password.value
 })
 
+const router = useRouter()
+
 async function login() {
   if (canLogin.value) {
     const param = {
@@ -35,7 +38,19 @@ async function login() {
     }
     const res = await apiService.login(param)
     if (res.data.status === 'success') {
+      ElMessage({
+        message: '登录成功，正在跳转...',
+        type: res.data.status
+      })
       localStorage.setItem('token', res.data.data)
+      setTimeout(() => {
+        router.push('/')
+      }, 500)
+    }else {
+      ElMessage({
+        message: res.data.msg,
+        type: res.data.status
+      })
     }
 
   } else {
