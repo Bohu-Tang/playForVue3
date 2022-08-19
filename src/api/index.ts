@@ -1,3 +1,4 @@
 export default {
-    getEnum: '/enum'
+    getEnum: '/enum',
+    login:'/login'
 }
