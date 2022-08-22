@@ -2,19 +2,28 @@ import api from '@/api/index'
 
 import request from "@/utils/request"
 
-function getEnum(){
-    return request.get(api.getEnum)
+function getAppleType() {
+    return request.get(api.appleType)
 }
 
-interface IloginParam{
+interface IloginParam {
     username: string,
     password: string
 }
-function login(param:IloginParam){
-    return request.post(api.login,param)
+function login(param: IloginParam) {
+    return request.post(api.login, param)
+}
+
+interface IappleType {
+    name: string,
+    code: string
+}
+function insertAppleType(param: IappleType) {
+    return request.post(api.insertAppleType, param)
 }
 
 export default {
-    getEnum,
-    login
+    getAppleType,
+    login,
+    insertAppleType
 }

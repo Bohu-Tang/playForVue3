@@ -30,6 +30,7 @@ const canLogin = computed(() => {
 
 const router = useRouter()
 
+// 登录方法
 async function login() {
   if (canLogin.value) {
     const param = {
@@ -37,6 +38,7 @@ async function login() {
       password: md5(password.value)
     }
     const res = await apiService.login(param)
+    // 登录结果处理
     if (res.data.status === 'success') {
       ElMessage({
         message: '登录成功，正在跳转...',

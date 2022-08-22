@@ -1,4 +1,5 @@
 export default {
-    getEnum: '/enum',
+    appleType: '/appleType',
+    insertAppleType:'/insertAppleType',
     login:'/login'
 }

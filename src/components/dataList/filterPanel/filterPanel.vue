@@ -5,9 +5,9 @@
       <template v-for="(item, index) in groups" :key="index">
         <el-col :span="item.span || 6">
           <component
-            :is="formComponents[item.componentName]"
-            v-bind="item"
-            @valueChange="change(groups, item, index, $event)"
+              :is="formComponents[item.componentName]"
+              v-bind="item"
+              @valueChange="change(groups, item, index, $event)"
           ></component>
         </el-col>
       </template>
@@ -20,7 +20,7 @@
   </el-card>
 </template>
 <script lang="ts" setup>
-import { defineProps, withDefaults, defineEmits, toRefs, onBeforeMount } from "vue"
+import {defineProps, withDefaults, defineEmits, toRefs, onBeforeMount} from "vue"
 import formComponents from "@/components/formComponents/index"
 
 interface IProps {
@@ -34,9 +34,9 @@ const props = withDefaults(defineProps<IProps>(), {
 })
 
 
-let { groups, auto } = toRefs(props)
+let {groups, auto} = toRefs(props)
 const emit = defineEmits<{
-  (event:"search", searchParam: any): void
+  (event: "search", searchParam: any): void
 }>()
 
 // 表单项value发生改变时,修改groups内的数据
@@ -75,7 +75,6 @@ function reset() {
   })
   search()
 }
-
 
 
 </script>

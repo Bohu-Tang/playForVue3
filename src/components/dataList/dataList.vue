@@ -7,7 +7,7 @@
         :auto="autoSearch"
         @search="search"
     />
-
+    <slot></slot>
     <!--表格-->
     <el-table ref="dataList" :data="data" :style="{ width }" v-loading="loading" v-bind="attrs">
       <!--列索引-->
