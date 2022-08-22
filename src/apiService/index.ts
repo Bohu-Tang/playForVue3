@@ -22,8 +22,16 @@ function insertAppleType(param: IappleType) {
     return request.post(api.insertAppleType, param)
 }
 
+interface IdelEnum {
+    id: string
+}
+function delEnum(param:IdelEnum){
+    return request.post(api.delEnum, param)
+}
+
 export default {
     getAppleType,
     login,
-    insertAppleType
+    insertAppleType,
+    delEnum
 }

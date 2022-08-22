@@ -7,4 +7,4 @@ interface ICol {
     width?: string | number // 列宽
 }
 
-export  {ICol}
+export type { ICol }

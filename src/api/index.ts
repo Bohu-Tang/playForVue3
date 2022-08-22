@@ -1,5 +1,6 @@
 export default {
     appleType: '/appleType',
     insertAppleType:'/insertAppleType',
-    login:'/login'
+    login:'/login',
+    delEnum: '/delEnum'
 }

@@ -24,7 +24,7 @@
       >
         <template #default="scope">
           <!--自定义列组件-->
-          <component :is="customColumns[col.type]" :scope="scope" :col="col"></component>
+          <component :is="customColumns[col.type]?customColumns[col.type]:customColumns.defaultText" :scope="scope" :col="col"></component>
         </template>
       </el-table-column>
     </el-table>

@@ -110,30 +110,47 @@ let columns = ref([
     label: '记录ID',
     prop: 'id',
     width: 180,
-    type: 'defaultText'
   },
   {
     label: '名称',
     prop: 'name',
     width: 180,
     size: '30px',
-    type: 'defaultText'
   },
   {
-    label: '品种名称',
-    prop: 'typeName',
+    label: 'CODE',
+    prop: 'code',
     width: 180,
-    type: 'defaultText'
   },
   {
-    label: '品种code',
+    label: '操作',
     prop: 'type',
-    type: 'defaultText',
-    showOverflowTooltip: true,
+    type: 'textBtn',
+    btns: [
+      {
+        label: '删除',
+        type: 'success',
+        link: true,
+        cb: del
+      }
+    ]
   }
 ])
+
 // 列表数据
 let tableData = ref([])
+
+async function del(row: any) {
+  console.log('删除');
+  console.log(row)
+  const res = await apiService.delEnum({ id: row.id })
+  console.log(res);
+  ElMessage({
+    type: res.data.status,
+    message: res.data.msg
+  })
+  getData()
+}
 // 列表loading状态
 let loading = ref(false)
 
