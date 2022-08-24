@@ -1,32 +1,36 @@
 <template>
-  <el-table :data="tableData" style="width: 100%">
-    <el-table-column prop="date" label="Date" width="180" />
-    <el-table-column prop="name" label="Name" width="180" />
-    <el-table-column prop="address" label="Address" />
-  </el-table>
+  <!--  <el-button @click="testClick">测试</el-button>-->
+  <x-form :groups="groups" @change="formChange"></x-form>
 </template>
 
 <script lang="ts" setup>
-const tableData = [
-  {
-    date: '2016-05-03',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-  },
-  {
-    date: '2016-05-02',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-  },
-  {
-    date: '2016-05-04',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-  },
-  {
-    date: '2016-05-01',
-    name: 'Tom',
-    address: 'No. 189, Grove St, Los Angeles',
-  },
-]
+import xForm from '@/components/form/xForm.vue'
+import {reactive, shallowReactive, markRaw, ref} from 'vue'
+import formComponents from '@/components/formComponents/index'
+import {required} from '@/common/validate'
+
+// const testClick = () => {
+//   groups.name.label = 'name'
+// }
+
+const formChange = (data: any) => {
+  console.log(data)
+
+}
+const groups = reactive({
+      age: {
+        label: '年龄',
+        prop: 'age',
+        type: markRaw(formComponents.xInput),
+        value: '1',
+        width: '50%',
+        attrs: {
+          placeholder: '请输入'
+        },
+        rules:[required('请输入年龄','change')],
+        onChange(value: any) {
+          console.log(value, '----')
+        }
+      },
+    })
 </script>

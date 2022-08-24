@@ -7,7 +7,7 @@
 import { defineProps, withDefaults, useAttrs, defineEmits, ref, toRefs, watch } from "vue"
 
 interface IProps {
-  prop?:string,
+  prop:string,
   width?: string,
   value?: string | number
 }
@@ -20,6 +20,8 @@ const props = withDefaults(defineProps<IProps>(), {
 let { width, value: refValue, prop } = toRefs(props)
 
 const attrs = useAttrs()
+console.log(attrs)
+
 const emit = defineEmits(['valueChange','update:modelValue'])
 
 // 定义自己的value用于双向绑定
