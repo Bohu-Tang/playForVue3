@@ -20,7 +20,7 @@ const props = withDefaults(defineProps<IProps>(), {
 let { width, value: refValue, prop } = toRefs(props)
 
 const attrs = useAttrs()
-const emit = defineEmits(['valueChange','update:modelValue'])
+const emit = defineEmits(['valueChange','update:modelValue', 'change'])
 
 // 定义自己的value用于双向绑定
 let inputValue = ref<string | number>('')
@@ -29,6 +29,7 @@ let inputValue = ref<string | number>('')
 function input() {
   emit('valueChange', inputValue.value, attrs, prop.value)
   emit('update:modelValue', inputValue.value)
+  emit('change', inputValue.value)
 }
 
 // 监听value变化,将传入的value反应在组件内部

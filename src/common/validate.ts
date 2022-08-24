@@ -1,14 +1,37 @@
-export function required(msg, trigger) {
-  return {
-    message: msg || '不能为空',
-    trigger: trigger || 'change',
-    required: true,
-    validator: (rule, value, callback) => {
-      if(value){
-        callback()
-      }else{
-        callback(new Error())
-      }
-    },
-  }
+interface IValidate {
+    msg?: string,
+    trigger?: string
+}
+
+function required(param: IValidate) {
+    return {
+        message: param.msg || '不能为空',
+        trigger: param.trigger || 'change',
+        required: true,
+        validator: (rule: any, value: any, callback: any) => {
+            if (value) {
+                callback()
+            } else {
+                callback(new Error())
+            }
+        },
+    }
+}
+function required1(param: IValidate) {
+    return {
+        message: param.msg || '不能为空',
+        trigger: param.trigger || 'change',
+        required: false,
+        validator: (rule: any, value: any, callback: any) => {
+            if (value) {
+                callback()
+            } else {
+                callback(new Error())
+            }
+        },
+    }
+}
+
+export {
+    required,required1
 }
