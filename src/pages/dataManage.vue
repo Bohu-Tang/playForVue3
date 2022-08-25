@@ -1,5 +1,5 @@
 <template>
-  <x-form ref="testForm" :groups="groups"  @submit="submit"></x-form>
+  <x-form ref="testForm" :groups="groups" @submit="submit"></x-form>
 </template>
 
 <script lang="ts" setup>
@@ -10,7 +10,7 @@ import {required, required1} from '@/common/validate'
 
 const testForm = ref()
 
-const submit=(data:any)=>{
+const submit = (data: any) => {
   console.log(data)
 }
 
@@ -19,15 +19,12 @@ const groups = reactive({
     label: '年龄',
     prop: 'age',
     type: markRaw(formComponents.xInput),
-    value: '1',
+    value: '',
     width: '50%',
-    attrs: {
-      placeholder: '请输入'
-    },
+    placeholder: '请输入年龄',
     rules: [required({msg: '请输入年龄', trigger: 'change'})],
-    onChange(data:any) {
-      console.log(data, '----')
-      if(data==='10'){
+    onChange(data: any) {
+      if (data === '10') {
         groups.name.value = '肖鲁新'
         groups.name.rules = []
         testForm.value.refreshRules()
@@ -38,15 +35,11 @@ const groups = reactive({
     label: '名字',
     prop: 'name',
     type: markRaw(formComponents.xInput),
-    value: '1',
+    value: '',
     width: '50%',
-    attrs: {
-      placeholder: '请输入'
-    },
+    placeholder: '请输入名字',
     rules: [required({msg: '请输入名字', trigger: 'change'})],
-    onChange(data:any) {
-      console.log(data, '----')
-    }
+
   },
 })
 </script>

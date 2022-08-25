@@ -9,6 +9,8 @@ function required(param: IValidate) {
         trigger: param.trigger || 'change',
         required: true,
         validator: (rule: any, value: any, callback: any) => {
+            console.log('表单校验：', value)
+
             if (value) {
                 callback()
             } else {
