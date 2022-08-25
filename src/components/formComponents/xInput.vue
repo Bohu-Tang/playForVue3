@@ -1,6 +1,6 @@
 <template>
   <div class="x-input" :style="{ width: width }">
-    <el-input v-model="selfValue" @change="input" @input="input" :placeholder="placeholder"></el-input>
+    <el-input v-model:model-value="value" @change="input" @input="input" :placeholder="placeholder"></el-input>
   </div>
 </template>
 <script lang="ts" setup>
@@ -26,7 +26,7 @@ let selfValue = ref<string | number>('')
 // input事件
 function input(value: string | number) {
   emit('update:modelValue', value)
-  emit('change', value)
+  // emit('change', value)
 }
 
 // 监听value变化,将传入的value反应在组件内部
